@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/SampleStyle.uss?fileID=7433441132597879392&amp;guid=043ce14980e84554482ddb5f28f159cb&amp;type=3#SampleStyle" />
+    <ui:VisualElement name="BGPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-left: 512px; padding-right: 512px; align-items: center; justify-content: flex-start; display: flex;">
+        <ui:VisualElement name="buttonsContainer" style="top: 256px; -unity-font-definition: url(&apos;project://database/Assets/Fonts/Retro%20Gaming%20SDF.asset?fileID=11400000&amp;guid=4e84d1025759a9249be6d84fb242b9c2&amp;type=2#Retro Gaming SDF&apos;); -unity-font-style: normal; display: flex; visibility: visible;">
+            <ui:VisualElement name="pointer" class="pointer-playPos" />
+            <ui:Button text="PLAY" display-tooltip-when-elided="true" name="playButton" class="button-mainMenu" />
+            <ui:Button text="QUIT" display-tooltip-when-elided="true" name="quitButton" class="button-mainMenu" />
+        </ui:VisualElement>
+        <ui:VisualElement name="BottomPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Sprites/Backgrounds/@arrebeat%202024.png?fileID=21300000&amp;guid=a6e6f0dafcdf71844aa33a7fc0a34e8f&amp;type=3#@arrebeat 2024&apos;); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 32px; padding-left: 192px; padding-right: 192px; padding-top: 0; padding-bottom: 32px; display: flex; visibility: hidden;" />
+    </ui:VisualElement>
+</ui:UXML>

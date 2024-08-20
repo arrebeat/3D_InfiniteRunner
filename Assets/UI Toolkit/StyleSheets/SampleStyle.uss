@@ -1,0 +1,79 @@
+.button-mainMenu {
+    -unity-font: resource('FlatSkin/Font/Roboto-Black');
+    -unity-font-style: normal;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(188, 188, 188, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+    width: auto;
+    letter-spacing: 0;
+    display: flex;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out-elastic;
+}
+
+.button-mainMenu-selected {
+    scale: 1.3 1.3;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out-elastic;
+}
+
+.button-mainMenu-active {
+    color: rgb(207, 36, 0);
+    transition-property: all;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    visibility: visible;
+}
+
+.titleContainer {
+    display: flex;
+    background-image: none;
+    width: 1024px;
+    margin-left: 128px;
+    margin-right: 128px;
+    margin-bottom: 256px;
+    min-height: 620px;
+}
+
+.title-initialPos {
+    background-image: url('project://database/Assets/Sprites/Backgrounds/TITLE%20(review).png?fileID=21300000&guid=6bf9bce2f3105644c84c0f1ba366ff17&type=3#TITLE (review)');
+    height: 620px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    translate: -1536px -512px;
+}
+
+.title-finalPos {
+    translate: 0 0;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-elastic;
+}
+
+.pointer-playPos {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 96px;
+    height: 32px;
+    translate: -96px 32px;
+    background-image: url('project://database/Packages/com.unity.2d.animation/Editor/Assets/ComponentIcons/Animation.SpriteResolver%20On@64.png?fileID=21300000&guid=1223ca7d04e5a4ad08a8d648c4e2a09e&type=3#Animation.SpriteResolver On@64');
+}
+
+.pointer-quitPos {
+    translate: -96px 124px;
+}
