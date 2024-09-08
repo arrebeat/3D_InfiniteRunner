@@ -12,6 +12,8 @@ public class ItemBase : MonoBehaviour
     public string tagPlayer = "Player";
     public string tagBat = "Bat";
 
+    public float timeToDestroy;
+
     void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -43,7 +45,7 @@ public class ItemBase : MonoBehaviour
         
         ItemManager.instance.CollectOnion();
 
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, timeToDestroy);
     }
 
     protected virtual void Consumed()
@@ -58,6 +60,6 @@ public class ItemBase : MonoBehaviour
         
         ItemManager.instance.ConsumeOnion();
 
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, timeToDestroy);
     }
 }

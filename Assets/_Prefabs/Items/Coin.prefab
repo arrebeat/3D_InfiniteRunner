@@ -9691,14 +9691,14 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 7385807083338203136
+  - rid: 636747128756502528
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
   references:
     version: 2
     RefIds:
-    - rid: 7385807083338203136
+    - rid: 636747128756502528
       type: {class: MMF_ParticlesInstantiation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
         Active: 1
@@ -9775,7 +9775,7 @@ MonoBehaviour:
         InstantiateParticlesPosition: {fileID: 0}
         TargetWorldPosition: {x: 0, y: 0, z: 0}
         Offset: {x: 0, y: 0, z: 0}
-        NestParticles: 0
+        NestParticles: 1
         ApplyRotation: 0
         ApplyScale: 0
 --- !u!1 &4529584421164673615
@@ -9807,12 +9807,12 @@ Transform:
   m_GameObject: {fileID: 4529584421164673615}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.75, y: 1.1, z: -44.7}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 0.10000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6671174439698022845}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &5925019323842949169
 MeshFilter:
@@ -9881,7 +9881,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9899,9 +9899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a632ac528f6954495924be6df17acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbacks: {fileID: 0}
   tagPlayer: Player
   tagBat: Bat
-  meshRenderer: {fileID: 0}
+  timeToDestroy: 1
 --- !u!1 &4931034921920838772
 GameObject:
   m_ObjectHideFlags: 0

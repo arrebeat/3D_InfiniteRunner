@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemBase_Coin : ItemBase
 {
-    public MeshRenderer meshRenderer { get; private set; }
+    public MeshRenderer meshRenderer;
 
     void Awake()
     {
