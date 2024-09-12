@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class PlayerController_Ball : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerController_Ball : MonoBehaviour
     public Animator animator { get; private set; }
     public GameObject marble { get; private set; }
     public Material[] materials;
+    public MMF_Player feedbacks { get; private set; }
 
     private Vector3 _startPosition;
     private bool _canRun = false;
@@ -23,7 +25,8 @@ public class PlayerController_Ball : MonoBehaviour
         GameObject gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager_Runner>();
         marble = GameObject.Find("Marble");
-        animator = marble.GetComponent<Animator>();
+        animator = marble.GetComponentInChildren<Animator>();
+        feedbacks = marble.GetComponentInChildren<MMF_Player>();
 
         _startPosition = transform.position;
     }
@@ -54,7 +57,9 @@ public class PlayerController_Ball : MonoBehaviour
         if (!_isIntangible)
         {
             _canRun = false;
-            animator.SetTrigger("Idle");
+            animator.SetTrigger("Hit");
+            MMF_PositionShake positionShake = feedbacks.GetFeedbackOfType<MMF_PositionShake>();
+            positionShake.Play(transform.position, 1);
 
             gameManager.Lose();
         }
@@ -65,6 +70,14 @@ public class PlayerController_Ball : MonoBehaviour
         _canRun = true;
 
         animator.SetTrigger("Move");
+    }
+
+    public void Win()
+    {
+        _canRun = false;
+        animator.SetTrigger("Idle");
+        
+        gameManager.Win();
     }
 
     #region POWERUPS
@@ -83,7 +96,7 @@ public class PlayerController_Ball : MonoBehaviour
     public void PowerUpIntangibleStart(float duration)
     {
         _isIntangible = true;
-        MeshRenderer marbleRender = marble.GetComponent<MeshRenderer>();
+        MeshRenderer marbleRender = marble.GetComponentInChildren<MeshRenderer>();
         marbleRender.material = materials[1];
         Invoke("PowerUpIntangibleEnd", duration);
     }
@@ -91,7 +104,7 @@ public class PlayerController_Ball : MonoBehaviour
     public void PowerUpIntangibleEnd()
     {
         _isIntangible = false;
-        MeshRenderer marbleRender = marble.GetComponent<MeshRenderer>();
+        MeshRenderer marbleRender = marble.GetComponentInChildren<MeshRenderer>();
         marbleRender.material = materials[0];
     }
 

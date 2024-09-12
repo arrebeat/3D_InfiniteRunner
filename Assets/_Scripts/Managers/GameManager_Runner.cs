@@ -14,6 +14,13 @@ public class GameManager_Runner : MonoBehaviour
         player = playerObject.GetComponent<PlayerController_Ball>();
     }
 
+    public void Win()
+    {
+        Debug.Log("WIN");
+        background.SetActive(true);
+        buttonRestart.SetActive(true);
+    }
+    
     public void Lose()
     {
         Debug.Log("LOSE");
