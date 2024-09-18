@@ -5,20 +5,33 @@ using UnityEngine;
 public class GameManager_Runner : MonoBehaviour
 {
     public PlayerController_Ball player { get; private set; }
+    public LevelManager_Runner levelManager { get; private set; }
     public GameObject background;
     public GameObject buttonRestart;
+    public GameObject buttonNext;
 
     private void Awake()
     {
         GameObject playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<PlayerController_Ball>();
+
+        GameObject levelManagerObject = GameObject.Find("LevelManager");
+        levelManager = levelManagerObject.GetComponent<LevelManager_Runner>();
     }
 
     public void Win()
     {
         Debug.Log("WIN");
         background.SetActive(true);
-        buttonRestart.SetActive(true);
+        
+        if (levelManager.levelIndex < levelManager.levels.Count - 1)
+        {
+            buttonNext.SetActive(true);
+        }
+        else if (levelManager.levelIndex >= levelManager.levels.Count - 1)
+        {
+            buttonRestart.SetActive(true);
+        }
     }
     
     public void Lose()

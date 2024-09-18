@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerController_Ball : MonoBehaviour
 {
-    public Vector2 pastPosition;
-    public float speed;
+    public Vector2 pastPosition { get; private set; }
+    public float speedHorizontal;
     public float speedRun;
     public float speedRunMultiplier = 1;
 
@@ -15,8 +15,8 @@ public class PlayerController_Ball : MonoBehaviour
     public GameObject marble { get; private set; }
     public Material[] materials;
     public MMF_Player feedbacks { get; private set; }
+    public Vector3 startPosition;
 
-    private Vector3 _startPosition;
     private bool _canRun = false;
     private bool _isIntangible = false;
 
@@ -28,7 +28,7 @@ public class PlayerController_Ball : MonoBehaviour
         animator = marble.GetComponentInChildren<Animator>();
         feedbacks = marble.GetComponentInChildren<MMF_Player>();
 
-        _startPosition = transform.position;
+        startPosition = transform.position;
     }
 
     void Update()
@@ -48,7 +48,7 @@ public class PlayerController_Ball : MonoBehaviour
 
     public void Move(float delta)
     {
-        transform.position += Vector3.right * Time.deltaTime * delta * speed;
+        transform.position += Vector3.right * Time.deltaTime * delta * speedHorizontal;
     }
 
     public void Hit()
@@ -68,16 +68,22 @@ public class PlayerController_Ball : MonoBehaviour
     public void StartRun()
     {
         _canRun = true;
-
+        marble.GetComponent<BoxCollider>().enabled = true;
         animator.SetTrigger("Move");
     }
 
     public void Win()
     {
         _canRun = false;
+        marble.GetComponent<BoxCollider>().enabled = false;
         animator.SetTrigger("Idle");
         
         gameManager.Win();
+    }
+
+    public void ResetPlayer()
+    {
+        transform.position = startPosition;
     }
 
     #region POWERUPS
@@ -119,7 +125,7 @@ public class PlayerController_Ball : MonoBehaviour
     public void PowerUpHoverEnd()
     {
         var groundPos = transform.position;
-        groundPos.y = _startPosition.y;
+        groundPos.y = startPosition.y;
         transform.position = groundPos;
     }
 
