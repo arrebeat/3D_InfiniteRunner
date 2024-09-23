@@ -9,10 +9,12 @@ public class PlayerController_Ball : MonoBehaviour
     public float speedHorizontal;
     public float speedRun;
     public float speedRunMultiplier = 1;
+    public string tagCoin = "Coin";
 
     public GameManager_Runner gameManager { get; private set; }
     public Animator animator { get; private set; }
     public GameObject marble { get; private set; }
+    public BoxCollider boxCollider { get; private set; }
     public Material[] materials;
     public MMF_Player feedbacks { get; private set; }
     public Vector3 startPosition;
@@ -25,10 +27,18 @@ public class PlayerController_Ball : MonoBehaviour
         GameObject gameManagerObject = GameObject.Find("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager_Runner>();
         marble = GameObject.Find("Marble");
+        boxCollider = marble.GetComponent<BoxCollider>();
         animator = marble.GetComponentInChildren<Animator>();
         feedbacks = marble.GetComponentInChildren<MMF_Player>();
 
         startPosition = transform.position;
+    }
+
+    void Start()
+    {
+        animator.SetTrigger("Idle");
+        MMF_Scale scale = feedbacks.GetFeedbackOfType<MMF_Scale>();
+        scale.Play(transform.position, 1);
     }
 
     void Update()
@@ -44,11 +54,34 @@ public class PlayerController_Ball : MonoBehaviour
         {
             transform.Translate(transform.forward * speedRun * speedRunMultiplier * Time.deltaTime);
         }
+
+        CheckForCollisions();
     }
 
     public void Move(float delta)
     {
         transform.position += Vector3.right * Time.deltaTime * delta * speedHorizontal;
+    }
+
+    public void CheckForCollisions()
+    {
+        // Get the center and size of the BoxCollider
+        Vector3 boxCenter = boxCollider.transform.position + boxCollider.center;
+        Vector3 boxSize = boxCollider.size * 0.5f; // Half extents for OverlapBox
+
+        // Check for collisions with the specified tag
+        Collider[] hitColliders = Physics.OverlapBox(boxCenter, boxSize, boxCollider.transform.rotation);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag(tagCoin))
+            {
+                Debug.Log("Collision detected with object tagged: " + tagCoin);
+                // Handle collision here
+                MMF_ScaleShake scaleShake = feedbacks.GetFeedbackOfType<MMF_ScaleShake>();
+                scaleShake.Play(transform.position, 1);
+            }
+        }
     }
 
     public void Hit()
@@ -86,11 +119,25 @@ public class PlayerController_Ball : MonoBehaviour
         transform.position = startPosition;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other + "COLLECTED");
+
+        if (other.transform.CompareTag(tagCoin))
+        {
+            
+            
+        }
+    }
+
     #region POWERUPS
 
     public void PowerUpSpeedStart(float duration, float speedMultiplier)
     {
         speedRunMultiplier = speedMultiplier;
+        MMF_ScaleShake scaleShake = feedbacks.GetFeedbackOfType<MMF_ScaleShake>();
+        scaleShake.Play(transform.position, 1);
+
         Invoke("PowerUpSpeedEnd", duration);
     }
 
@@ -104,6 +151,9 @@ public class PlayerController_Ball : MonoBehaviour
         _isIntangible = true;
         MeshRenderer marbleRender = marble.GetComponentInChildren<MeshRenderer>();
         marbleRender.material = materials[1];
+        MMF_ScaleShake scaleShake = feedbacks.GetFeedbackOfType<MMF_ScaleShake>();
+        scaleShake.Play(transform.position, 1);
+
         Invoke("PowerUpIntangibleEnd", duration);
     }
 
@@ -119,6 +169,9 @@ public class PlayerController_Ball : MonoBehaviour
         var hoverPos = transform.position;
         hoverPos.y = height;
         transform.position = hoverPos;
+        MMF_ScaleShake scaleShake = feedbacks.GetFeedbackOfType<MMF_ScaleShake>();
+        scaleShake.Play(transform.position, 1);
+
         Invoke("PowerUpHoverEnd", duration);
     }
 

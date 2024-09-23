@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
-public class PowerUp_Base : ItemBase_Coin
+public class PowerUp_Base : MonoBehaviour
 {
-    private MeshRenderer[] _meshRenderers;
-
     public PlayerController_Ball player;
+    public MMF_Player feedbacks;
     public float duration;
+    public float timeToDestroy;
 
+    public string tagPlayer = "Player";
+
+    private MeshRenderer[] _meshRenderers;
+    
     void Awake()
     {
         GameObject playerObject = GameObject.Find("Player");
@@ -20,7 +24,16 @@ public class PowerUp_Base : ItemBase_Coin
         
     }
 
-    protected override void Collected()
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log(other + "COLLECTED");
+        if (other.transform.CompareTag(tagPlayer))
+        {
+            Collected();
+        }
+    }
+
+    protected virtual void Collected()
     {
         foreach (var meshRenderer in _meshRenderers)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
@@ -12,6 +13,7 @@ public class LevelManager_Runner : MonoBehaviour
     public Transform levelContainer;
     public List<GameObject> levels;
     public List<SOLevel> levels_SO;
+    public ItemBase_Coin[] coins;
     public int levelIndex;
     public Vector3 levelPoint;
     public Vector3 startPiecePoint;
@@ -56,6 +58,8 @@ public class LevelManager_Runner : MonoBehaviour
 
         ChangeColorByType(_currentLevel.GetComponent<LevelController>().artType);
 
+        StartCoroutine(SpawnCoins());
+
         player.transform.position = player.startPosition;
     }
 
@@ -64,6 +68,28 @@ public class LevelManager_Runner : MonoBehaviour
         levelIndex = 0;
     }
 
+    private IEnumerator SpawnCoins()
+    {
+        coins = _currentLevel.GetComponentsInChildren<ItemBase_Coin>();
+        
+        // Sort coins by distance from the Player
+        coins = coins.OrderBy(coin => Vector3.Distance(coin.transform.position, startPiecePoint)).ToArray();
+
+        WaitForSeconds waitCoin = new WaitForSeconds(0.05f);
+
+        foreach (var coin in coins)
+        {
+            coin.meshRenderer.enabled = true;
+            coin.particleSystem_Aura.Play();
+            MMF_Scale scale = coin.feedbacks.GetFeedbackOfType<MMF_Scale>();
+            scale.Play(transform.position, 1);
+
+            yield return waitCoin;
+        }
+
+        StopCoroutine(SpawnCoins()); 
+        yield return null;
+    }
 
     #region Art Manager
 

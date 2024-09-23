@@ -26,6 +26,7 @@ TagManager:
   - ContainerTally
   - Bat
   - Damage
+  - Coin
   layers:
   - Default
   - TransparentFX
