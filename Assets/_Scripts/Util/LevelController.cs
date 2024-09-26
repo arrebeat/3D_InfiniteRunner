@@ -10,6 +10,7 @@ public class LevelController : MonoBehaviour
     public bool isRandomLevel;
     public int numberOfPieces;
     public List<GameObject> currentLevelPieces;
+    public ItemBase_Coin[] currentCoins;
 
     [Header("Art")]
     public LevelManager_Runner.ArtType artType;
@@ -25,6 +26,10 @@ public class LevelController : MonoBehaviour
         if (isRandomLevel)
         {
             SpawnLevelPieces();
+        }
+        else
+        {
+            levelManager.SpawnCoins();
         }
     }
 
@@ -49,5 +54,8 @@ public class LevelController : MonoBehaviour
                 piece.transform.localPosition = startPosition;
             }
         }
+
+        currentCoins = GetComponentsInChildren<ItemBase_Coin>();
+        levelManager.SpawnCoins();
     }
 }

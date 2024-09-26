@@ -58,7 +58,7 @@ public class LevelManager_Runner : MonoBehaviour
 
         ChangeColorByType(_currentLevel.GetComponent<LevelController>().artType);
 
-        StartCoroutine(SpawnCoins());
+        //StartCoroutine(SpawnCoins());
 
         player.transform.position = player.startPosition;
     }
@@ -68,14 +68,26 @@ public class LevelManager_Runner : MonoBehaviour
         levelIndex = 0;
     }
 
-    private IEnumerator SpawnCoins()
+    public void SpawnCoins()
     {
-        coins = _currentLevel.GetComponentsInChildren<ItemBase_Coin>();
+        StartCoroutine(SpawnCoinsCoroutine());
+    }
+
+    private IEnumerator SpawnCoinsCoroutine()
+    {
+        if (_currentLevel.GetComponent<LevelController>().isRandomLevel)
+        {
+            coins = _currentLevel.GetComponent<LevelController>().currentCoins;
+        }
+        else
+        {
+            coins = _currentLevel.GetComponentsInChildren<ItemBase_Coin>();
+        }
         
         // Sort coins by distance from the Player
         coins = coins.OrderBy(coin => Vector3.Distance(coin.transform.position, startPiecePoint)).ToArray();
 
-        WaitForSeconds waitCoin = new WaitForSeconds(0.05f);
+        WaitForSeconds waitCoin = new WaitForSeconds(0.02f);
 
         foreach (var coin in coins)
         {
@@ -87,7 +99,7 @@ public class LevelManager_Runner : MonoBehaviour
             yield return waitCoin;
         }
 
-        StopCoroutine(SpawnCoins()); 
+        StopCoroutine(SpawnCoinsCoroutine()); 
         yield return null;
     }
 

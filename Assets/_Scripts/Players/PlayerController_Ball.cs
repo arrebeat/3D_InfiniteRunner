@@ -18,9 +18,12 @@ public class PlayerController_Ball : MonoBehaviour
     public Material[] materials;
     public MMF_Player feedbacks { get; private set; }
     public Vector3 startPosition;
+    public Transform target;
+    public float limitsHorizontal;
 
     private bool _canRun = false;
     private bool _isIntangible = false;
+    private Vector3 _pos;
 
     private void Awake()
     {
@@ -54,6 +57,22 @@ public class PlayerController_Ball : MonoBehaviour
         {
             transform.Translate(transform.forward * speedRun * speedRunMultiplier * Time.deltaTime);
         }
+
+        _pos = transform.position;
+/*         _pos.y = transform.position.y;
+        _pos.z = transform.position.z;
+ */
+        if (_pos.x < -limitsHorizontal)
+        {
+            _pos.x = -limitsHorizontal;
+        }
+        else if (_pos.x > limitsHorizontal)
+        {
+            _pos.x = limitsHorizontal;
+        }
+
+        transform.position = _pos;
+        //transform.position.Set(_pos.x, _pos.y, _pos.z);
 
         CheckForCollisions();
     }
@@ -91,8 +110,11 @@ public class PlayerController_Ball : MonoBehaviour
         {
             _canRun = false;
             animator.SetTrigger("Hit");
+            
             MMF_PositionShake positionShake = feedbacks.GetFeedbackOfType<MMF_PositionShake>();
             positionShake.Play(transform.position, 1);
+            MMF_Particles hitParticlePlay = feedbacks.GetFeedbackOfType<MMF_Particles>();
+            hitParticlePlay.Play(transform.position, 1);
 
             gameManager.Lose();
         }

@@ -19,7 +19,7 @@ public class ItemBase_Coin : ItemBase
 
     void Start()
     {
-        //meshRenderer.enabled = false;
+        meshRenderer.enabled = false;
         particleSystem_Aura.Stop();
     }
 
@@ -34,15 +34,15 @@ public class ItemBase_Coin : ItemBase
 
     protected override void Collected()
     {
-        MMF_ParticlesInstantiation collected = feedbacks.GetFeedbackOfType<MMF_ParticlesInstantiation>();
         meshRenderer.enabled = false;
-        collected.Play(transform.position, 1);
-
-        /* MMF_ScaleShake scaleShakePlayer = player.feedbacks.GetFeedbackOfType<MMF_ScaleShake>();
-        scaleShakePlayer.Play(transform.position, 1); */    
+        
+        List<MMF_ParticlesInstantiation> feedbacksCollected = feedbacks.GetFeedbacksOfType<MMF_ParticlesInstantiation>();
+        feedbacksCollected[0].Play(transform.position, 1);
+        feedbacksCollected[1].Play(transform.position, 1);
+          
 
         //ItemManager.instance.CollectKey(); 
 
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1f);
     }
 }

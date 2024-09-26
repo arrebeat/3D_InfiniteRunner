@@ -70,6 +70,198 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
     applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: HEAD
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 663
+      width: 560
+      height: 601
+    spriteID: 3f6d40598ad5d254da52e46743a7490d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 663}
+    spritePosition: {x: 163, y: 221}
+  - name: HOOD
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 767
+      height: 651
+    spriteID: d84d5d73528dadd4da64cf9e22228a68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: -265}
+    spritePosition: {x: 0, y: 269}
+  - name: ARM R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1778
+      width: 151
+      height: 220
+    spriteID: 4c9678ebd109baf4cb7626cc4a3f99b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1778}
+    spritePosition: {x: 164, y: 204}
+  - name: TORSO
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1272
+      width: 459
+      height: 498
+    spriteID: 295d8706c64914b4d8f2e6ac48328e41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1272}
+    spritePosition: {x: 187, y: 12}
+  - name: ARM L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 1778
+      width: 115
+      height: 209
+    spriteID: b4cc900aca37ca34d98c51aa2f1e9c4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -377, y: 1579}
+    spritePosition: {x: 560, y: 199}
+  - name: LEG R
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 1778
+      width: 148
+      height: 96
+    spriteID: e3643d14483850b4fb0cb1ecaae9ad6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 1778}
+    spritePosition: {x: 259, y: 1}
+  - name: LEG L
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 1882
+      width: 143
+      height: 96
+    spriteID: d72de122dc0f4e84987cc791cec60d36
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 1882}
+    spritePosition: {x: 447, y: 1}
+  - name: CAPE
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 471
+      y: 1272
+      width: 523
+      height: 320
+    spriteID: 273c377c19f8acb42ac747cdf451cd74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1221}
+    spritePosition: {x: 166, y: 51}
   spriteImportData:
   - name: 
     originalName: 
@@ -92,7 +284,6 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
-  mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: HEAD
     originalName: 
@@ -262,15 +453,16 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 325, y: 1221}
     spritePosition: {x: 166, y: 51}
-  characterData:
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  sharedRigSpriteImportData: []
-  sharedRigCharacterData:
+  characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
@@ -287,15 +479,135 @@ ScriptedImporter:
   generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 1
-  skeletonAssetReferenceID: 
-  pipeline: {instanceID: 0}
-  pipelineVersion: 
   padding: 4
   spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
   spriteCategoryList:
     categories: []
   spritePackingTag: 
   resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: Teletustra Layers
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 67ac442630bd9ed4b98372767f19e536
+    layerID: 43
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: HEAD
+    spriteName: HEAD
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3f6d40598ad5d254da52e46743a7490d
+    layerID: 42
+    mosaicPosition: {x: 4, y: 663}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: HOOD
+    spriteName: HOOD
+    isGroup: 0
+    parentIndex: 0
+    spriteID: d84d5d73528dadd4da64cf9e22228a68
+    layerID: 41
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ARM R
+    spriteName: ARM R
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 4c9678ebd109baf4cb7626cc4a3f99b8
+    layerID: 40
+    mosaicPosition: {x: 4, y: 1778}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: TORSO
+    spriteName: TORSO
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 295d8706c64914b4d8f2e6ac48328e41
+    layerID: 39
+    mosaicPosition: {x: 4, y: 1272}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ARM L
+    spriteName: ARM L
+    isGroup: 0
+    parentIndex: 0
+    spriteID: b4cc900aca37ca34d98c51aa2f1e9c4a
+    layerID: 38
+    mosaicPosition: {x: 163, y: 1778}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LEG R
+    spriteName: LEG R
+    isGroup: 0
+    parentIndex: 0
+    spriteID: e3643d14483850b4fb0cb1ecaae9ad6b
+    layerID: 37
+    mosaicPosition: {x: 286, y: 1778}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LEG L
+    spriteName: LEG L
+    isGroup: 0
+    parentIndex: 0
+    spriteID: d72de122dc0f4e84987cc791cec60d36
+    layerID: 36
+    mosaicPosition: {x: 286, y: 1882}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: CAPE
+    spriteName: CAPE
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 273c377c19f8acb42ac747cdf451cd74
+    layerID: 35
+    mosaicPosition: {x: 471, y: 1272}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Teletustra Base
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b9a3862befd5b5d45898b6a9755d259a
+    layerID: 32
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BODY 0
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f7ccb11b4bbd2344da9a26196d5baa42
+    layerID: 7
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: HEAD 0
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: aa6fc2c35e28fc54a847b6eabd78b5ce
+    layerID: 23
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: Teletustra Layers
@@ -419,7 +731,6 @@ ScriptedImporter:
     isImported: 0
     isVisible: 0
   sharedRigPSDLayers: []
-  pSDLayerImportSetting: []
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   spriteSizeExpandChanged: 0

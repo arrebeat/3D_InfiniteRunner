@@ -206,6 +206,7 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		protected override void CustomRestoreInitialValues()
 		{
+			#if MM_TEXTMESHPRO
 			if (!Active || !FeedbackTypeAuthorized)
 			{
 				return;
@@ -213,6 +214,7 @@ namespace MoreMountains.Feedbacks
 			TargetTMPText.gameObject.SetActive(false);
 			TargetTMPText.outlineColor = _initialColor;
 			TargetTMPText.gameObject.SetActive(true);
+			#endif
 		}
 	}
 }

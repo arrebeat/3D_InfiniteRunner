@@ -20,7 +20,8 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -88,6 +89,7 @@ Material:
     m_Ints: []
     m_Floats:
     - PixelSnap: 0
+    - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 2
@@ -124,11 +126,12 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.6792453, g: 0.06087574, b: 0.143419, a: 0.3254902}
     - _Color: {r: 0.6792453, g: 0.060875714, b: 0.14341897, a: 0.3254902}
-    - _EmissionColor: {r: 0.09380562, g: 0.6415094, b: 0.18316785, a: 0}
+    - _EmissionColor: {r: 0, g: 0.30218306, b: 0.4339623, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2830189, g: 0.1294945, b: 0.1294945, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &8379709719637865932
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -141,4 +144,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9

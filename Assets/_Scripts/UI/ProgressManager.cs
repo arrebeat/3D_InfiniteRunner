@@ -9,7 +9,7 @@ using MoreMountains.Feedbacks;
 using System;
 using UnityEngine.UI;
 using TMPro;
-using TMPro.Examples;
+//using TMPro.Examples;
 
 public class ProgressManager : MonoBehaviour
 {
