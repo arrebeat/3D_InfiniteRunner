@@ -84,7 +84,7 @@ public class LevelManager_Runner : MonoBehaviour
             coins = _currentLevel.GetComponentsInChildren<ItemBase_Coin>();
         }
         
-        // Sort coins by distance from the Player
+        // Sort coins by distance from Start Point
         coins = coins.OrderBy(coin => Vector3.Distance(coin.transform.position, startPiecePoint)).ToArray();
 
         WaitForSeconds waitCoin = new WaitForSeconds(0.02f);
@@ -98,8 +98,7 @@ public class LevelManager_Runner : MonoBehaviour
 
             yield return waitCoin;
         }
-
-        StopCoroutine(SpawnCoinsCoroutine()); 
+ 
         yield return null;
     }
 
