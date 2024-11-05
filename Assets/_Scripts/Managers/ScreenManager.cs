@@ -15,6 +15,8 @@ namespace UIScreens
 
         void Start()
         {
+            screenBases.GetRandom();
+            
             HideAll();
             ShowByType(startScreenType);
         }
